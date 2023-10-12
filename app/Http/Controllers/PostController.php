@@ -6,6 +6,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
+use App\Models\Category;
+
+
 
  
  class PostController extends Controller
@@ -19,21 +22,30 @@ use App\Models\Post;
     {
         return view('posts.show ')->with(['post'=>$post]);
     }
+    
     public function edit(Post $post)
     {
         return view('posts.edit')->with(['post' =>$post]);
     }
+    
     public function update(PostRequest $request, Post $post)
     {
         $input_post = $request['post'];
         $post->fill($input_post)->save();
         return redirect('/posts/' . $post->id);
     }
-    public function create()
+    
+    public function create(Category $category)
     {
-        return view('posts.create');
+        return view('posts.create')->with(['categories' => $category->get()]);
     }
-    public function store(Request $request, Post $post)
+    
+    public function limit()
+    {
+        return view('posts.limit');
+    }
+    
+    public function store(PostRequest $request, Post $post)
     {
         $input = $request['post'];
         $post->fill($input)->save();
@@ -44,4 +56,5 @@ use App\Models\Post;
         $post->delete();
         return redirect('/');
     }
+    
 }

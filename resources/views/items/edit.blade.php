@@ -1,6 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout>
+  <x-slot name="header">
   <div class="create-items">
     <div class="form">
       <form action="/items/{{$item->id}}" method="POST">
@@ -24,4 +23,4 @@
       </form>
     </div>
   </div>
-@endsection
+  </x-app-layout>

@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout>
   <div class="create-items">
     <div class="form">
       <form action="/items" method="POST">
@@ -25,3 +23,4 @@
     </div>
   </div>
 @endsection
+</x-app-layout>

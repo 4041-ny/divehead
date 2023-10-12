@@ -1,5 +1,6 @@
 <x-app-layout>
 <x-slot name="header">
+    @vite(['resources/css/app.css','resources/js/app.js'])
 </x-slot>
 <x-slot name="slot">
     <body class="antialiased"> 

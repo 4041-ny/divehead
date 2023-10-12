@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use DateTime;
 
+
 class PostSeeder extends Seeder
 {
     /**
@@ -28,6 +29,8 @@ class PostSeeder extends Seeder
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
          ]);
+        
+		
     
     }
 }

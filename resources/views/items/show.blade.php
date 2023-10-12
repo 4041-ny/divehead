@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout>
   <table>
     <tr>
       <th>Item Id</th>
@@ -24,5 +22,4 @@
   </form>
   
   <a href="/items">Back to index</a>
-@endsection
-    
+</x-app-layout>

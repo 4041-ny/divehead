@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Http\Request;
+use App\Models\Tasklog;
+
 
 class ItemsController extends Controller
 {
@@ -17,12 +19,20 @@ class ItemsController extends Controller
         $items = Item::all();
         return view ('items/index' , ['items'=> $items] );
     }
+public function show($id , Request $request )
+    {
+        $log_list = TaskLog::where("date_key","like",date("Y") . "%")->get();
+        $item = Item::find($id);
+        return view ('items/show' , ['item' => $item] )
+        ("tasklog_graph",["log_list" => $log_list]);
+    
+    }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     
     public function create()
     {
         return view('items/create');
@@ -33,7 +43,7 @@ class ItemsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     */
+     *
     public function store(Request $request)
     {
         $item = new Item;
@@ -50,18 +60,13 @@ class ItemsController extends Controller
      * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $item = Item::find($id);
-        return view ('items/show' , ['item' => $item] );
-    }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
-     */
+     *
     public function edit($id)
     {
         $item = Item::find($id);
@@ -74,7 +79,7 @@ class ItemsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
-     */
+     
     public function update(Request $request, $id)
     {
         $item= Item::find($id);
@@ -90,11 +95,12 @@ class ItemsController extends Controller
      *
      * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
-     */
+     
     public function destroy(Item $item)
     {
         $item =Item::find($id);
         $item->delete();
         return redirect('/items');
     }
+      */
 }

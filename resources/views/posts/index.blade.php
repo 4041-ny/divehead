@@ -6,7 +6,7 @@
 </x-slot>
 <x-slot name="slot">
         <h1>Dive Head</h1>
-          <a href="/posts/create">作成</a>
+          <a href="/posts/create">タスク作成</a>
           <div class='posts'>
             @foreach ($posts as $post)
               <div class='post'>
@@ -15,13 +15,14 @@
                         <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
+                    <button type="button" onclick="deletePost({{ $post->id }})">削除</button> 
                     </form>
                 </div>
+                <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
             @endforeach
+            
         </div>
-        {{ Auth::user()->name}}
-               <div class="todo-list">
+             <div class="todo-list">
                   <div class="item-area-incomplete">
                       <p class="body">YOURTASK</p>
                       <ul>
@@ -43,6 +44,7 @@
                                 }
                           }
             </script>
+            {{ Auth::user()->name}}
             <div class='paginate'>
               {{ $posts->links() }}
             </div>
