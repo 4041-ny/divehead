@@ -8,7 +8,6 @@ use App\Http\Controllers\LineLoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TasklogController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +32,7 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::get('/', 'index')->name('index');
     Route::get('/posts/create', 'create')->name('create');
     Route::get('/posts/{post}', 'show')->name('show');
-    Route::post('/posts/', 'store')->name('store');
+    Route::post('/posts', 'store')->name('store');
     Route::put('/posts/{post}', 'update')->name('update');
     Route::delete('posts/{post}','delete')->name('delete');
     Route::get('/posts/{post}/edit', 'edit')->name('edit');
@@ -43,7 +42,7 @@ Route::get('/categories/{category}', [CategoryController::class,'index'])->middl
 Route::get('/linelogin',[LineLoginController::class,'linelogin'])->name('linelogin');
 Route::get('/callback', [LineLoginController::class,'callback'])->name('callback');
 Route::resource('/items' ,  ItemsController::class);
-Route::get('/graph', [TasklogController::class,"show"])->name("graph");
+
 
 
 

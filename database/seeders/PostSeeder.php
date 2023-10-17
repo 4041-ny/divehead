@@ -20,14 +20,18 @@ class PostSeeder extends Seeder
             DB::table('posts')->insert([
                 'title' => '命名の心得',
                 'body' => '命名はデータを基準に考える',
+                'limit' =>'2023年　10月18日',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
+                'category_id' => 1 ,
          ]);
             DB::table('posts')->insert([
                 'title' => 'エラー文',
                 'body' => '読めるようになれば怖くない',
+                'limit' =>'2023年　10月18日',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
+                'category_id' => 2 ,
          ]);
         
 		
