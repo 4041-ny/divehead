@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->string('limit', 10)->nullable();
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title')->nullable();
+            $table->string('body')->nullable();
+            $table->string('limit')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+            $table->foreignId('category_id')->constrained();
         });
     }
 
@@ -25,8 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('posts');
     }
 };

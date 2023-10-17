@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
+            @vite(['resources/css/app.css','resources/js/app.js'])
+        <title>Dive Head</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -23,19 +23,19 @@
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block justify-between">
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
                         @if (Route::has('register'))
-                             <a href="{{route('linelogin')}}">LINEログイン</a>
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                         @endif
+                        <button class="bg-green-600 font-medium  py-1 px-2  btn hover:green-500z rounded m-8 text-white">
+                           <a href="{{route('linelogin')}}">Log in</a>
+                        </button>
                     @endauth
                 </div>
-                
             @endif
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">

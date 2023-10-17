@@ -25,5 +25,7 @@ class Post extends Model
             'body',
             'category_id',
             'limit',
-        ];
+            
+    
+    ];
 }

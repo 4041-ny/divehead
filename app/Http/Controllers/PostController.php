@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Tasklog;
+
 
 
 
@@ -15,15 +17,16 @@ use App\Models\Category;
  {
     public function index(Post $post)
     {
-        return view('posts.index')->with(['posts' => $post->getPaginateByLimit(1)]);
+        $log_list = TaskLog::where("date_key","like",date("Y") . "%")->get();
+        return view('posts.index')->with(['posts' => $post->getPaginateByLimit(1), "log_list" => $log_list]);
     }
     
     public function show(Post $post)
     {
-        return view('posts.show ')->with(['post'=>$post]);
+        return view('posts.show')->with(['post'=>$post]);
     }
     
-    public function edit(Post $post)
+    public function edit(Post $post, Task $task)
     {
         return view('posts.edit')->with(['post' =>$post]);
     }
@@ -40,13 +43,14 @@ use App\Models\Category;
         return view('posts.create')->with(['categories' => $category->get()]);
     }
     
-    public function limit()
+    public function limit(Post $post)
     {
-        return view('posts.limit');
+        return view('posts.limit')->with(['post'=>$post]);
     }
     
-    public function store(PostRequest $request, Post $post)
+    public function store(Request $request, Post $post)
     {
+        
         $input = $request['post'];
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
@@ -56,5 +60,14 @@ use App\Models\Category;
         $post->delete();
         return redirect('/');
     }
-    
+      
+	public function dashboard()
+	{
+	    $log_list = TaskLog::where("date_key","like",date("Y") . "%")->get();
+	    $task= Task::all();
+	    return view('dashboard')->with(['post'=>$post ,'task'=>$task ,"log_list" => $log_list]);
+	    
+	}
+	
+	
 }

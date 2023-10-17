@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('task_log', function (Blueprint $table) {
             $table->id();
             $table->string('date_key');
-            $table->float('success');
+            $table->float('completion');
             $table->timestamps();
         });
     }
