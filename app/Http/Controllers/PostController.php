@@ -18,7 +18,7 @@ use App\Models\Tasklog;
     public function index(Post $post)
     {
         $log_list = TaskLog::where("date_key","like",date("Y") . "%")->get();
-        return view('posts.index')->with(['posts' => $post->getPaginateByLimit(1), "log_list" => $log_list]);
+        return view('posts.index')->with(['posts' => $post->getPaginateByLimit(10), "log_list" => $log_list]);
     }
     
     public function show(Post $post)
@@ -61,11 +61,12 @@ use App\Models\Tasklog;
         return redirect('/');
     }
       
-	public function dashboard()
+	public function dashboard(Post $post)
 	{
+	    //dd($post->get());
 	    $log_list = TaskLog::where("date_key","like",date("Y") . "%")->get();
-	    $task= Task::all();
-	    return view('dashboard')->with(['post'=>$post ,'task'=>$task ,"log_list" => $log_list]);
+	    $task= Tasklog::all();
+	    return view('dashboard')->with(['posts'=>$post->get() ,'task'=>$task ,"log_list" => $log_list]);
 	    
 	}
 	

@@ -23,6 +23,10 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () { 
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'index')->name('index');
@@ -38,7 +42,6 @@ Route::get('/categories/{category}', [CategoryController::class,'index'])->middl
 Route::get('/linelogin',[LineLoginController::class,'linelogin'])->name('linelogin');
 Route::get('/callback', [LineLoginController::class,'callback'])->name('callback');
 Route::resource('/items' ,  ItemsController::class);
-Route::get('/dashboard' ,[PostController::class, 'dashboard'])->name('dashboard');
 
 
 

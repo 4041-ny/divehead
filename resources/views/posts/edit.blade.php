@@ -1,25 +1,51 @@
 <x-app-layout>
-<x-slot name="header">
     @vite(['resources/css/app.css','resources/js/app.js'])
-</x-slot>
+    
 <x-slot name="slot">
-    <body class="antialiased"> 
-      <h1 class="title">編集画面</h1>
-    <div class="content">
-        <form action="/posts/{{ $post->id }}" method="POST">
+    <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <div class="mt-5 p-4 relative z-10 bg-white border rounded-xl sm:mt-10 md:p-10">
+    <div class="text-center">
+    <h1>編集部屋<h1>
+    <form action="/posts/{{ $post->id }}" method="POST">
             @csrf
             @method('PUT')
-            <div class='content__title'>
-                <h2>YOURTASK</h2>
-                <input type='text' name='post[title]' value="{{ $post->title }}">
+            <div class="title">
+                <div class="mb-4 sm:mb-8">
+                    <label for="hs-feedback-post-comment-name-1" class="block mb-2 text-sm font-medium">タスクタイトル</label>
+                        <input type='text' name='post[title]' value="{{ $post->title }}">
+                        <p class='title__error' style='color:red'> {{ $errors->first('post.title') }}</p>
+                </div>
             </div>
-            <div class='content__body'>
-                <h2>タスクを作りましょう</h2>
-                <input type='text' name='post[body]' value="{{ $post->body }}">
+    
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                <div class="category">
+                    <div class="mb-4 sm:mb-8">
+                        <label for="hs-feedback-post-comment-name-1" class="block mb-2 text-sm font-medium">タスク種類</label>
+                            <input type='select' name='post[category]' value="{{ $post->category_id }}">
+                    </div>
+                </div>
+                <div class="limit">
+                    <label for="hs-feedback-post-comment-name-1" class="block mb-2 text-sm font-medium">期日</label>
+                        <input type='text' name='post[limit]' value="{{ $post->limit }}">
+                                
+                    </div>
             </div>
-        </form>
-        <input type="submit" value="保存">
-    </div>
-    <div class="back">[<a href="/">戻る</a>]</div>
-</x-slot>
+            <div class="body">
+                <div class="mb-4 sm:mb-8">
+                    <label for="hs-feedback-post-comment-name-1" class="block mb-2 text-sm font-medium">タスク詳細</label>
+                      <input type='text' name='post[body]' value="{{ $post->body }}">
+                        <p class='body__error' style='color:red'> {{ $errors->first('post.body') }}</p>
+                </div>
+            </div>
+        </div>    
+         <div class="mt-6 grid">
+          <button class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
+            <input type="submit" value="保存">
+            </button>
+            　</form>          
+           <div class="footer">
+          <a href="/">キャンセル</a>
+        </div>
+  </x-slot>
 </x-app-layout>
+

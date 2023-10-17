@@ -105,9 +105,9 @@
                             <div class='post'>
                                 <a href= "/posts/{{ $post->id }}"><h2 class='title'>{{ $post->title }}</h2></a>
                                     <p class='body'>{{ $post->body }}</p>
-                                        <p class='limit'>{{ $post->limit }}</p>
                                         <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                                             <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+                                             <p class='limit'>{{ $post->limit }}<p>
                                             @csrf
                                             @method('DELETE')
                                             <button type="button" onclick="deletePost({{ $post->id }})">削除</button> 

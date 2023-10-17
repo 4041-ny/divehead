@@ -36,6 +36,8 @@ class TasklogSeeder extends Seeder
 			$log->completion = $completion;
 			$log->save();
     }
-    }
+   }
+    
+  
     
 }
