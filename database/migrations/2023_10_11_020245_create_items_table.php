@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description');
-            $table->integer('price');
+            $table->string('title')->nullable();
+            $table->string('body')->nullable();
+            $table->string('limit')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+            $table->foreignId('category_id')->constrained();
         });
     }
 

@@ -38,8 +38,8 @@
             </div>
         </div>    
          <div class="mt-6 grid">
-          <button class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
-            <div class="edit"><a href="/posts/{{ $post->id }}/edit">edit</a></div>
+          <button class="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
+            <div class="edit"><a href="/posts/{{ $post->id }}/edit">編集</a></div>
             </button>
             　</form>          
            <div class="footer">

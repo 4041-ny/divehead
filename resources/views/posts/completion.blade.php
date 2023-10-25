@@ -10,7 +10,7 @@
           <div class="font-extrabold">1日に1回の「やってみる」</div>
         </div>
         <div>
-          <button type="button"   class="w-2/3 py-3 px-4  inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-900 text-white hover:white focus:outline-none focus:ring-2 focus:ring-gray-100 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
+          <button type="button" class="w-2/3 py-3 px-4  inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-900 text-white hover:white focus:outline-none focus:ring-2 focus:ring-gray-100 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
             <a href="/posts/create">Let's dive</a>
           </button>
         </div>
@@ -77,11 +77,11 @@
                                       </ul>
                                     </div>
                                     <div class="flex flex-row md:justify-between">
-                                      <form action="/completion/{{$post->id}}" method='post'>
-                                        @csrf
-                                        <div onclick="animetion({{ $post->id }})" class="inline-flex items-center gap-1.5 rounded-lg border border-gray-800 bg-gray-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-gray-900 hover:bg-gray-700 focus:ring focus:ring-red-200 disabled:cursor-not-allowed disabled:border-red-300 disabled:bg-gray-300">
-                                            <input type="submit" value="完了"/>
-                                        </div>
+                                    <form action="/completion/{{ $post->id }}" id="completion_{{ $post->id }}" method="post">
+                                      @csrf
+                                      <button type="button" onclick="completionPost({{ $post->id }})" class= "inline-flex items-center gap-1.5 rounded-lg border border-gray-800 bg-gray-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-gray-900 hover:bg-gray-700 focus:ring focus:ring-red-200 disabled:cursor-not-allowed disabled:border-red-300 disabled:bg-gray-300">
+                                      完了
+                                    </button>
                                     </form>
                                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                                             @csrf
@@ -108,27 +108,12 @@
                         }
                     </script>
                     <script>
-                        function limitPost(id){
-                          // h1の要素をEventTargetとする
-                          if (confirm('1日1回しか使えません。はいを選択後クリックできなくなります。'))
-                          const clickTarget = document.getElementById(`wow_${id}`);
-                           
-                          // 非同期通信などで一連の通信が完了するまで、クリックイベントを無効化したいときに使える手法
-                          let canClick = true;
-                          clickTarget.addEventListener('click', function (event) {
-                            // canClickがfalseのときはここで処理を中断する
-                            if (!canClick) {
-                              return;
+                        function completionPost(id) {
+                            'use strict'
+                    
+                            if (confirm('完了')) {
+                                document.getElementById(`completion_${id}`).submit();
                             }
-                           
-                            // canClickをfalseに変更して、2秒後にcanClickをtrueに戻す
-                            canClick = false;
-                            setTimeout(() => {
-                              canClick = true;
-                              console.log('１日経過');
-                            }, date);
-                            alert('翌日までクリックできなくなりました')
-                          });
                         }
                     </script>
                 <div class=" flex flex-row">

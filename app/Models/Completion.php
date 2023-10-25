@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Item extends Model
+
+class Completion extends Model
 {
     use HasFactory;
     
@@ -22,5 +23,4 @@ class Item extends Model
             'body',
             'category_id',
             'limit' ];
-            
 }

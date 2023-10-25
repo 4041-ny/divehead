@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
     <head>
-        <div class=" text-4xl font-extrabold font-mono text-center m-8 container">
+        <div class=" text-4xl font-extrabold  text-center m-8 container">
            <a href="{{ route('dashboard') }}">Dive Head</a>
         </div>
         <meta charset="utf-8">
@@ -11,6 +10,7 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -20,7 +20,6 @@
     </head>
     
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -30,6 +29,7 @@
                         {{ $header }}
                     </div>
                 </header>
+                
             @endif
 
             <!-- Page Content -->
@@ -37,5 +37,4 @@
                 {{ $slot }}
             </main>
         </div>
-    </body>
 </html>
