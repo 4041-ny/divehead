@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('items', function (Blueprint $table) {
+        Schema::create('completions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description');
-            $table->integer('price');
+            $table->string('title')->nullable();
+            $table->string('body')->nullable();
+            $table->string('limit')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+            $table->foreignId('category_id')->constrained();
         });
     }
 
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('completions');
     }
 };

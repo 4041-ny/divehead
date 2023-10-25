@@ -17,5 +17,12 @@ class Category extends Model
     {
      return $this->posts()->with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
-    
+     public function completions()   
+    {
+    return $this->hasMany(Completion::class);  
+    }
+    public function items()   
+    {
+    return $this->hasMany(item::class);  
+    }
 }

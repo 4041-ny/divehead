@@ -8,9 +8,7 @@ use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tasklog;
-
-
-
+use App\Models\Completion;
 
  
  class PostController extends Controller
@@ -26,7 +24,7 @@ use App\Models\Tasklog;
         return view('posts.show')->with(['post'=>$post]);
     }
     
-    public function edit(Post $post, Task $task)
+    public function edit(Post $post)
     {
         return view('posts.edit')->with(['post' =>$post]);
     }
@@ -50,7 +48,6 @@ use App\Models\Tasklog;
     
     public function store(Request $request, Post $post)
     {
-        
         $input = $request['post'];
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
@@ -61,13 +58,22 @@ use App\Models\Tasklog;
         return redirect('/');
     }
       
-	public function dashboard()
+	public function dashboard(Post $post)
 	{
+	    //dd($post->get());
 	    $log_list = TaskLog::where("date_key","like",date("Y") . "%")->get();
-	    $task= Task::all();
-	    return view('dashboard')->with(['post'=>$post ,'task'=>$task ,"log_list" => $log_list]);
-	    
+	    $task= Tasklog::all();
+	    return view('dashboard')->with(['posts'=>$post->get() ,'task'=>$task ,"log_list" => $log_list]);
 	}
+    public function completion(Completion $completion, Post $post)
+    {
+        $input = array('title'=>$post->title,'body'=>$post->body,'limit'=>$post->limit, 'category_id'=>$post->category_id);
+        $completion->fill($input)->save();
+        //$post->delete();
+        return redirect('/');
+    }
+
+	
 	
 	
 }

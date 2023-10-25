@@ -25,6 +25,7 @@ class PostSeeder extends Seeder
                 'updated_at' => new DateTime(),
                 'category_id' => 1 ,
          ]);
+                
             DB::table('posts')->insert([
                 'title' => 'エラー文',
                 'body' => '読めるようになれば怖くない',

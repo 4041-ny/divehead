@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
     <head>
+        <div class=" text-4xl font-extrabold  text-center m-8 container">
+           <a href="{{ route('dashboard') }}">Dive Head</a>
+        </div>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ config('app.name', 'Laravel') }}</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <h1 class="text-4xl text-center font-extrabold m-8 container">
-           Dive Head
-        </h1>
-       
 
+        <title>{{ config('app.name', 'Laravel') }}</title>
+
+        
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -17,24 +18,23 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-        <body class="font-sans antialiased ">
-        <div class="min-h-screen bg-gray-100 mx-auto container">
+    
+    <body class="font-sans antialiased">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto text-center py-6 px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
+                
             @endif
 
             <!-- Page Content -->
             <main>
                 {{ $slot }}
-            @yield('content')
             </main>
         </div>
-    </body>
 </html>

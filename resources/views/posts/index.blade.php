@@ -1,149 +1,146 @@
 <x-app-layout>
-<x-slot name="header">
 <!--<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">-->
 @vite(['resources/css/app.css','resources/js/app.js'])
-</x-slot>
 
 <x-slot name="slot">
-    <div class="text-right">
-        <button type="button" class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-blue-500 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm">
-            <a href="/posts/create">Let's dive</a>
-        </button>
+  <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <div class="mt-5 p-4 relative z-10 bg-white  sm:mt-10 md:p-10">
+      <div class="grid grid-cols-2">
+        <div class="item-center text-center">
+          <div class="font-extrabold">1日に1回の「やってみる」</div>
         </div>
-        <canvas id="myChart"></canvas>
-                		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-                        	<!-- グラフを描画 -->
-                           <script>
-                        	//ラベル
-                        	var labels = [
-                        		"2023年10月1日",
-                        		"2023年10月2日",
-                        		"2023年10月3日",
-                        		"2023年10月4日",
-                        		"2023年10月5日",
-                        		"2023年10月6日",
-                        	    "2023年10月7日",
-                        	];
-                        	//平均達成ログ
-                        	var average_task_log = [
-                        		3.0,	
-                        		5.0,	
-                        	    6.0,	
-                        		7.0,    
-                        		7.0,	
-                        		8.0,	
-                        		8.0
-                        	];
-                        	//最大達成ログ
-                        	var max_task_log = [
-                        		4.0,	
-                        		8.0,
-                        		9.0,	
-                        		7.0,
-                        		8.0,
-                        		10.0,   
-                        		9.0
-                        	];
-                        	//最小達成ログ
-                        	var min_task_log = [
-                        		1.0,	
-                        		2.0,
-                        		3.0,
-                        		4.0,
-                        		5.0,
-                        	    6.0,
-                        	    4.0
-                        		                       	];
-                        
-                        	//グラフを描画
-                           var ctx = document.getElementById("myChart");
-                           var myChart = new Chart(ctx, {
-                        		type: 'line',
-                        		data : {
-                        			labels: labels,
-                        			datasets: [
-                        				{
-                        					label: '達成率',
-                        					data: average_task_log,
-                        					borderColor: "rgba(0,0,255,1)",
-                                 			backgroundColor: "rgba(0,0,0,0)"
-                        				},
-                        				{
-                        					label: '最大達成率',
-                        					data: max_task_log,
-                        					borderColor: "rgba(0,255,0,1)",
-                                 			backgroundColor: "rgba(0,0,0,0)"
-                        				},
-                        				{
-                        					label: '最小達成率',
-                        					data: min_task_log,
-                        					borderColor: "rgba(255,0,0,1)",
-                                 			backgroundColor: "rgba(0,0,0,0)"
-                        				}
-                        			]
-                        		},
-                        		options: {
-                        			title: {
-                        				display: true,
-                        				text: ' タスク達成ログ'
-                        			}
-                        		}
-                           });
-                           </script>
-                   <!-- グラフを描画ここまで -->
-                   
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-            <div>
-            <div class="w-full text-white bg-indigo-700 rounded-xl">
-                <div class="text-center">
-                    <p class="ttl">YOURTASK</p>
-                        </div>
-                            </div>
+        <div>
+          <button type="button"   class="w-2/3 py-3 px-4  inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-900 text-white hover:white focus:outline-none focus:ring-2 focus:ring-gray-100 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
+            <a href="/posts/create">Let's dive</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>  
+    <div class="mt-5 p-4 z-10 bg-gray border rounded-xl sm:mt-10 md:p-10">
+           <div class="w-full text-white bg-gray-800  rounded-xl">
+                    <div class="text-center text-2xl">
+                        <p class="ttl">TASK MISSION</p>
+                    </div>
+                </div>
                     <div class='posts'>
-                        <ul>
-                            @foreach ($posts as $post)
-                            <div class='post'>
-                                <a href= "/posts/{{ $post->id }}"><h2 class='title'>{{ $post->title }}</h2></a>
-                                    <p class='body'>{{ $post->body }}</p>
-                                        <p class='limit'>{{ $post->limit }}</p>
-                                        <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
-                                            <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+                            <ul>
+                                @foreach ($posts as $post)
+                                <div class='post'>
+                                    <div class="mx-auto max-w-lg text-center m-8">
+                                      <ul class="space-y-4">
+                                        <li class="flex gap-4">
+                                          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                                            </svg>
+                                          </div>
+                                          <div class="flex-1">
+                                            <a href= "/posts/{{ $post->id }}"><div class="text-xl font-medium leading-loose">{{ $post->title }}</h2></a>
+                                          </div>
+                                        </li>
+                                        
+                                        <li class="flex gap-4">
+                                          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                              <path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M3.75 18h15A2.25 2.25 0 0021 15.75v-6a2.25 2.25 0 00-2.25-2.25h-15A2.25 2.25 0 001.5 9.75v6A2.25 2.25 0 003.75 18z" />
+                                            </svg>
+                                          </div>
+                                          <div class="flex-1">
+                                            <div class="text-xl font-medium leading-loose">{{ $post->body }}</div>
+                                          </div>
+                                        </li>
+                                        
+                                        <li class="flex gap-4">
+                                          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-100">
+                                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                              <path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M4.5 10.5h6.75V15H4.5v-4.5zM3.75 18h15A2.25 2.25 0 0021 15.75v-6a2.25 2.25 0 00-2.25-2.25h-15A2.25 2.25 0 001.5 9.75v6A2.25 2.25 0 003.75 18z" />
+                                            </svg>
+                                          </div>
+                                          <div class="flex-1">
+                                            <div class="text-xl font-medium leading-loose">
+                                            <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></div>
+                                          </div>
+                                        </li>
+                                        
+                                        <li class="flex gap-4">
+                                          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                              <path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M4.5 10.5H18V15H4.5v-4.5zM3.75 18h15A2.25 2.25 0 0021 15.75v-6a2.25 2.25 0 00-2.25-2.25h-15A2.25 2.25 0 001.5 9.75v6A2.25 2.25 0 003.75 18z" />
+                                            </svg>
+                                          </div>
+                                          <div class="flex-1">
+                                            <div class="text-xl font-medium leading-loose">{{ $post->limit }}</div>
+                                          </div>
+                                        </li>
+                                        
+                                      </ul>
+                                    </div>
+                                    <div class="flex flex-row md:justify-between">
+                                      <form action="/completion/{{$post->id}}" method='post'>
+                                        @csrf
+                                        <div onclick="animetion({{ $post->id }})" class="inline-flex items-center gap-1.5 rounded-lg border border-gray-800 bg-gray-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-gray-900 hover:bg-gray-700 focus:ring focus:ring-red-200 disabled:cursor-not-allowed disabled:border-red-300 disabled:bg-gray-300">
+                                            <input type="submit" value="完了"/>
+                                        </div>
+                                    </form>
+                                    <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="button" onclick="deletePost({{ $post->id }})">削除</button> 
-                                        </form>
+                                              <button type="button" onclick="deletePost({{ $post->id }})"class="inline-flex items-center gap-1.5 rounded-lg border border-red-500 bg-red-500 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-red-700 hover:bg-red-700 focus:ring focus:ring-red-200 disabled:cursor-not-allowed disabled:border-red-300 disabled:bg-red-300">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="h-4 w-4">
+                                                  <path fill="currentColor" d="M13.5 6.5V7h5v-.5a2.5 2.5 0 0 0-5 0Zm-2 .5v-.5a4.5 4.5 0 1 1 9 0V7H28a1 1 0 1 1 0 2h-1.508L24.6 25.568A5 5 0 0 1 19.63 30h-7.26a5 5 0 0 1-4.97-4.432L5.508 9H4a1 1 0 0 1 0-2h7.5Zm2.5 6.5a1 1 0 1 0-2 0v10a1 1 0 1 0 2 0v-10Zm5-1a1 1 0 0 0-1 1v10a1 1 0 1 0 2 0v-10a1 1 0 0 0-1-1Z" />
+                                                </svg>
+                                                削除
+                                            </button>
+                                    </form>
+                                    </div>
+                                @endforeach
+                                </ul>
                             </div>
-                            @endforeach
-                        </ul>
-                    </div>
-            </div>
-            
-            <div>
-                <div class="w-full text-white bg-indigo-700 rounded-xl">
-                         <div class="text-center"><p class="ttl">COMPLETE!</p></div>
-                          <ul>
-                              <!-- ここに完了リストを追加する -->
-                          </ul>
-                </div>
-            </div>
-        </div>
+                        </div>
                     <script>
                         function deletePost(id) {
-                        'use strict'
-                        if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
-                        document.getElementById(`form_${id}`).submit();
-                                }
+                            'use strict'
+                    
+                            if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                                document.getElementById(`form_${id}`).submit();
                             }
+                        }
                     </script>
-                          
-            <div class="text-center items-center">
-                <div class='paginate'>
-                    <div class=" inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
-                        <div class="font-semibold">
-                            {{ $posts->links() }}
-                        </div>
+                    <script>
+                        function limitPost(id){
+                          // h1の要素をEventTargetとする
+                          if (confirm('1日1回しか使えません。はいを選択後クリックできなくなります。'))
+                          const clickTarget = document.getElementById(`wow_${id}`);
+                           
+                          // 非同期通信などで一連の通信が完了するまで、クリックイベントを無効化したいときに使える手法
+                          let canClick = true;
+                          clickTarget.addEventListener('click', function (event) {
+                            // canClickがfalseのときはここで処理を中断する
+                            if (!canClick) {
+                              return;
+                            }
+                           
+                            // canClickをfalseに変更して、2秒後にcanClickをtrueに戻す
+                            canClick = false;
+                            setTimeout(() => {
+                              canClick = true;
+                              console.log('１日経過');
+                            }, date);
+                            alert('翌日までクリックできなくなりました')
+                          });
+                        }
+                    </script>
+                <div class=" flex flex-row">
+                    <div class='paginate'>
+                        {{ $posts->links() }}
                     </div>
                 </div>
-            </div>
-        </x-slot>
+                    
+        </div>
+    </div>
+</x-slot>
 </x-app-layout>
+
+
+   
