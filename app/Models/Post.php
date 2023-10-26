@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Completion;
 
 class Post extends Model
 {
@@ -14,7 +15,10 @@ class Post extends Model
     {
     return $this->belongsTo(Category::class);
     }
-    
+    public function completions()   
+    {
+    return $this->hasMany(Completion::class);  
+    }
     public function getPaginateByLimit(int $limit_count = 10)
     {
     
@@ -25,7 +29,6 @@ class Post extends Model
             'body',
             'category_id',
             'limit',
-            
-    
-    ];
-}
+            'user_id', 
+            ];
+    }

@@ -32,6 +32,7 @@ use App\Models\Completion;
     public function update(PostRequest $request, Post $post)
     {
         $input_post = $request['post'];
+        $input += ['user_id' => $request->user()->id];  
         $post->fill($input_post)->save();
         return redirect('/posts/' . $post->id);
     }
@@ -50,6 +51,7 @@ use App\Models\Completion;
     {
         $input = $request['post'];
         $post->fill($input)->save();
+        $input_post += ['user_id' => $request->user()->id]; 
         return redirect('/posts/' . $post->id);
     }
     public function delete(Post $post)
@@ -72,8 +74,5 @@ use App\Models\Completion;
         //$post->delete();
         return redirect('/');
     }
-
-	
-	
 	
 }

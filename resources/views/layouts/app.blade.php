@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <div class=" text-4xl font-extrabold  text-center m-8 container">
            <a href="{{ route('dashboard') }}">Dive Head</a>
         </div>
+        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -17,9 +18,10 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        
     </head>
     
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased ">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -29,7 +31,6 @@
                         {{ $header }}
                     </div>
                 </header>
-                
             @endif
 
             <!-- Page Content -->

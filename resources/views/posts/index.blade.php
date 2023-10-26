@@ -1,8 +1,13 @@
 <x-app-layout>
 <!--<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">-->
 @vite(['resources/css/app.css','resources/js/app.js'])
-
+<script src="/path/to/anime.min.js"></script>
 <x-slot name="slot">
+      <div class="wrapper">
+        <div class="square" id="elem"></div>
+        <div class="square" id="elem2"></div>
+        <div class="square" id="elem3"></div>
+      </div>
   <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     <div class="mt-5 p-4 relative z-10 bg-white  sm:mt-10 md:p-10">
       <div class="grid grid-cols-2">
@@ -10,9 +15,9 @@
           <div class="font-extrabold">1日に1回の「やってみる」</div>
         </div>
         <div>
-          <button type="button"   class="w-2/3 py-3 px-4  inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-900 text-white hover:white focus:outline-none focus:ring-2 focus:ring-gray-100 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
-            <a href="/posts/create">Let's dive</a>
-          </button>
+            <button type="button" id="form-button" class="w-2/3 py-3 px-4  inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-900 text-white text-sm font-semibold bg-gray-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
+              <a href="/posts/create">Let's dive</a>
+            </button>
         </div>
       </div>
     </div>
@@ -79,14 +84,14 @@
                                     <div class="flex flex-row md:justify-between">
                                       <form action="/completion/{{$post->id}}" method='post'>
                                         @csrf
-                                        <div onclick="animetion({{ $post->id }})" class="inline-flex items-center gap-1.5 rounded-lg border border-gray-800 bg-gray-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-gray-900 hover:bg-gray-700 focus:ring focus:ring-red-200 disabled:cursor-not-allowed disabled:border-red-300 disabled:bg-gray-300">
+                                        <div onclick="animetion({{ $post->id }})" class="font-semibold bg-gray-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all inline-flex items-center gap-1.5 rounded-lg  border-gray-800 bg-gray-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm">
                                             <input type="submit" value="完了"/>
                                         </div>
                                     </form>
                                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                              <button type="button" onclick="deletePost({{ $post->id }})"class="inline-flex items-center gap-1.5 rounded-lg border border-red-500 bg-red-500 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-red-700 hover:bg-red-700 focus:ring focus:ring-red-200 disabled:cursor-not-allowed disabled:border-red-300 disabled:bg-red-300">
+                                              <button type="button" onclick="deletePost({{ $post->id }})"class="inline-flex items-center gap-1.5 rounded-lg border border-red-500 bg-red-500 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-red-700 hover:bg-red-200 focus:ring focus:ring-red-200 disabled:cursor-not-allowed disabled:border-red-300 disabled:bg-red-300">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="h-4 w-4">
                                                   <path fill="currentColor" d="M13.5 6.5V7h5v-.5a2.5 2.5 0 0 0-5 0Zm-2 .5v-.5a4.5 4.5 0 1 1 9 0V7H28a1 1 0 1 1 0 2h-1.508L24.6 25.568A5 5 0 0 1 19.63 30h-7.26a5 5 0 0 1-4.97-4.432L5.508 9H4a1 1 0 0 1 0-2h7.5Zm2.5 6.5a1 1 0 1 0-2 0v10a1 1 0 1 0 2 0v-10Zm5-1a1 1 0 0 0-1 1v10a1 1 0 1 0 2 0v-10a1 1 0 0 0-1-1Z" />
                                                 </svg>
@@ -108,36 +113,31 @@
                         }
                     </script>
                     <script>
-                        function limitPost(id){
-                          // h1の要素をEventTargetとする
                           if (confirm('1日1回しか使えません。はいを選択後クリックできなくなります。'))
-                          const clickTarget = document.getElementById(`wow_${id}`);
-                           
-                          // 非同期通信などで一連の通信が完了するまで、クリックイベントを無効化したいときに使える手法
-                          let canClick = true;
-                          clickTarget.addEventListener('click', function (event) {
-                            // canClickがfalseのときはここで処理を中断する
-                            if (!canClick) {
-                              return;
-                            }
-                           
-                            // canClickをfalseに変更して、2秒後にcanClickをtrueに戻す
-                            canClick = false;
-                            setTimeout(() => {
-                              canClick = true;
-                              console.log('１日経過');
-                            }, date);
-                            alert('翌日までクリックできなくなりました')
-                          });
-                        }
-                    </script>
+                          const clickTarget = document.getElementById('from-button');
+                          const itemId = 'from-button';
+                          
+                          // 24時間後に再アクティブにする関数
+                          function reactivateItem() {
+                              // アイテムを再アクティブにするための処理をここに記述
+                              console.log(`Item ${itemId} is now reactivated!`);
+                          
+                          // クリックされたときに呼び出される処理
+                          function handleClick() {
+                              // タイマーをセットして24時間後に再アクティブにする
+                              setTimeout(reactivateItem, 24 * 60 * 60 * 1000); // 24時間後（ミリ秒単位
+                              // ここで何らかの処理を行う...
+                          }
+                        // 例としてボタンがクリックされた場合を想定
+                        const button = document.getElementById("yourButtonId");
+                        button.addEventListener("click", handleClick);
+                                            </script>
                 <div class=" flex flex-row">
                     <div class='paginate'>
                         {{ $posts->links() }}
                     </div>
                 </div>
-                    
-        </div>
+          </div>
     </div>
 </x-slot>
 </x-app-layout>

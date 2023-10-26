@@ -10,6 +10,9 @@ module.exports = {
 
     theme: {
         extend: {
+            backgroundImage:{
+              "header-bg": "url('.../src/img/main-bg.jpg')",  
+            },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },

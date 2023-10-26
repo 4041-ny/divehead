@@ -43,7 +43,7 @@ class EventAdded extends Notification
             ->title('新イベント')
             ->body('新しいイベントが追加されました！')
             ->data([
-                'url' => url('/test/15')
+                'url' => url('/')
             ]);
     }
     

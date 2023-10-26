@@ -17,13 +17,12 @@ class ItemsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Completion $completion , Item $item )
+    public function index(Completion $completion, Post $post)
     {
-       
-        $completion=Completion::latest('id')->get();
-        return view('items/index', compact('completion'));
-        return view('item.index')->with('completions', $completion);
-    }
-
+       dd($completion);
+    array($post=>'usr_id'->user_id,$completion=>'is_check'->is_check);
     
+    return view('items.index',compact($completion));
+    }
+ 
 }

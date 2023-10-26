@@ -36,9 +36,6 @@
                         </svg>
                         {{ __('CALENDAR') }}
                     </x-nav-link>
-                    
-                   
-                
                 </div>
             </div>
 
