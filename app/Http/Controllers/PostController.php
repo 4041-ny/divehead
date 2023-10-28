@@ -9,14 +9,14 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tasklog;
 use App\Models\Completion;
+use Carbon\Carbon;
 
  
  class PostController extends Controller
  {
     public function index(Post $post)
     {
-        $log_list = TaskLog::where("date_key","like",date("Y") . "%")->get();
-        return view('posts.index')->with(['posts' => $post->getPaginateByLimit(1), "log_list" => $log_list]);
+        return view('posts.index')->with(['posts' => $post->getPaginateByLimit(1)]);
     }
     
     public function show(Post $post)
@@ -58,22 +58,17 @@ use App\Models\Completion;
         return redirect('/');
     }
       
-	public function dashboard(Post $post)
+	public function dashboard(Post $post,Request $request)
 	{
 	    //dd($post->get());
 	    $log_list = TaskLog::where("date_key","like",date("Y") . "%")->get();
 	    $task= Tasklog::all();
 	    return view('dashboard')->with(['posts'=>$post->get() ,'task'=>$task ,"log_list" => $log_list]);
 	}
-    public function completion(Completion $completion, Post $post)
+    public function completion(Post $post)
     {
-        $input = array('title'=>$post->title,'body'=>$post->body,'limit'=>$post->limit, 'category_id'=>$post->category_id);
-        $completion->fill($input)->save();
-        //$post->delete();
-        return redirect('/');
+        $post->update(['is_done' => true, 'finished_at' => now()]);
+        return view('posts.completion');
     }
-
-	
-	
 	
 }

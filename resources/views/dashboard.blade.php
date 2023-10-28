@@ -1,25 +1,21 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-  </x-slot>
-              <div class="mt-5 p-4 z-10 bg-white border rounded-xl sm:mt-10 md:p-10">
-                 <div class="w-full text-white bg-gray-800 rounded-xl">
+              <div class="mt-4">
+                 <div class="w-full text-white bg-gray-800 rounded-full">
                           <div class="text-center text-2xl">
-                              <p class="ttl">TASK MISSION</p>
+                              <p class="ttl">Today</p>
                           </div>
+                          
                       </div>
                         </div>
-                            <div class='posts'>
+                    <div class='posts'>
                             <ul>
                                 @foreach ($posts as $post)
                                 @csrf
                                 <div class='post'>
-                                    <div class="mx-auto max-w-lg text-center justify-betwee m-8">
+                                    <div class="mx-auto max-w-lg border border-gray-800 rounded-xl text-center justify-between m-8">
                                       <ul class="space-y-4">
                                         <li class="flex gap-4">
-                                          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-100">
+                                          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-100 ">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                                             </svg>
@@ -62,23 +58,16 @@
                                             <div class="text-xl font-medium leading-loose">{{ $post->limit }}</div>
                                           </div>
                                         </li>
-                                        <div class="my-8 flex items-center gap-4 before:h-px before:flex-1 before:bg-gray-300  before:content-[''] after:h-px after:flex-1 after:bg-gray-300  after:content-['']">Yesterday</div>
                                       </ul>
                                     </div>
+                                    <div class="m-8 flex items-center gap-4 before:h-px before:flex-1 before:bg-gray-300  before:content-[''] after:h-px after:flex-1 after:bg-gray-300  after:content-['']">Yesterday</div>
                                 @endforeach
                             　</ul>
                             </div>
                         </div>
-                    <script>
-                        function deletePost(id) {
-                        'use strict'
-                        if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
-                        document.getElementById(`form_${id}`).submit();
-                                }
-                            }
-                    </script>
+                    </div>
+                <div class="w-full text-white bg-gray-800 rounded-full">
                 </div>
-            </div>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -87,5 +76,5 @@
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
 </x-app-layout>

@@ -1,7 +1,8 @@
 self.addEventListener('push', e => {    // プッシュ通知された時
 
-    const json = e.data.json();
-    const title = json.title;
+    let json = e.data.json();
+    let title = json.title;
+    console.log(json);
     const options = {
         body: json.body,
         data: {
@@ -15,7 +16,7 @@ self.addEventListener('push', e => {    // プッシュ通知された時
 });
 self.addEventListener('notificationclick', e => {   // 通知がクリックされた時
 
-    const data = e.notification.data;
+    let data = e.notification.data;
     e.waitUntil(
         clients.openWindow(data.url)
     );
