@@ -28,7 +28,6 @@ class Completion extends Model
             'body',
             'category_id',
             'limit',
-            
-    
+            'created_at',
              ];
 }

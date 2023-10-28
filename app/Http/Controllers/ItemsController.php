@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Tasklog;
 use App\Models\Post;
 use App\Models\Completion;
+use Carbon\Carbon;
 
 
 
@@ -17,12 +18,32 @@ class ItemsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Completion $completion, Post $post)
+    public function index(Post $post)
     {
-       dd($completion);
-    array($post=>'usr_id'->user_id,$completion=>'is_check'->is_check);
+        
+        
+        
+        $labels = [];
+        $completions = [];
+        
+        for($i = 0;$i < 4; $i++)
+        {
+            $span = 7*$i;
+            $startDay = Carbon::today()->subDays($span);
+            $finishDay = Carbon::create($startDay)->subDays(7);
+            $count = $post->where('is_done',true)->whereDate('finished_at', '<=', $startDay)->whereDate('finished_at', '>=', $finishDay)->count();
+            //dd($post->where('is_done',true)->whereDate('finished_at', '<=', $startDay)->get(), $startDay, $span, Carbon::today(), $finishDay);
+            $week = 7;
+            $completionPercent = $count/$week * 100;
+            array_push($completions, $completionPercent);
+            $label = ($i+1).'週間前';
+            array_push($labels, $label);
+        }
+        return view('items.index')->with(['completions'=>$completions,'labels'=>$labels]);
     
-    return view('items.index',compact($completion));
+        
     }
- 
+    
+
+
 }

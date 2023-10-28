@@ -1,13 +1,7 @@
 <x-app-layout>
 <!--<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">-->
 @vite(['resources/css/app.css','resources/js/app.js'])
-<script src="/path/to/anime.min.js"></script>
 <x-slot name="slot">
-      <div class="wrapper">
-        <div class="square" id="elem"></div>
-        <div class="square" id="elem2"></div>
-        <div class="square" id="elem3"></div>
-      </div>
   <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     <div class="mt-5 p-4 relative z-10 bg-white  sm:mt-10 md:p-10">
       <div class="grid grid-cols-2">
@@ -15,13 +9,14 @@
           <div class="font-extrabold">1日に1回の「やってみる」</div>
         </div>
         <div>
-            <button type="button" id="form-button" class="w-2/3 py-3 px-4  inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-900 text-white text-sm font-semibold bg-gray-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
-              <a href="/posts/create">Let's dive</a>
+            <button type="button" @if(!$posts->first()->canCreate()) disabled @endif class="w-2/3 py-3 px-4  inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-900 text-white text-sm font-semibold bg-gray-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
+              <a href=@if($posts->first()->canCreate()) "/posts/create" @else "javascript:void(0)"@endif>Let's dive</a>
             </button>
+          </form>  
         </div>
       </div>
     </div>
-  </div>  
+  </div>
     <div class="mt-5 p-4 z-10 bg-gray border rounded-xl sm:mt-10 md:p-10">
            <div class="w-full text-white bg-gray-800  rounded-xl">
                     <div class="text-center text-2xl">
@@ -41,7 +36,7 @@
                                             </svg>
                                           </div>
                                           <div class="flex-1">
-                                            <a href= "/posts/{{ $post->id }}"><div class="text-xl font-medium leading-loose">{{ $post->title }}</h2></a>
+                                            <a href= "/posts/{{ $post->id }}"><div class="text-xl font-medium leading-loose ">{{ $post->title }}</h2></a>
                                           </div>
                                         </li>
                                         
@@ -113,25 +108,25 @@
                         }
                     </script>
                     <script>
-                          if (confirm('1日1回しか使えません。はいを選択後クリックできなくなります。'))
-                          const clickTarget = document.getElementById('from-button');
-                          const itemId = 'from-button';
-                          
-                          // 24時間後に再アクティブにする関数
-                          function reactivateItem() {
-                              // アイテムを再アクティブにするための処理をここに記述
-                              console.log(`Item ${itemId} is now reactivated!`);
-                          
-                          // クリックされたときに呼び出される処理
-                          function handleClick() {
-                              // タイマーをセットして24時間後に再アクティブにする
-                              setTimeout(reactivateItem, 24 * 60 * 60 * 1000); // 24時間後（ミリ秒単位
-                              // ここで何らかの処理を行う...
-                          }
-                        // 例としてボタンがクリックされた場合を想定
-                        const button = document.getElementById("yourButtonId");
-                        button.addEventListener("click", handleClick);
-                                            </script>
+                      // h1の要素をEventTargetとする
+                      const clickTarget = document.getElementById('time-button')
+                       
+                      // 非同期通信などで一連の通信が完了するまで、クリックイベントを無効化したいときに使える手法
+                      let canClick = true;
+                      clickTarget.addEventListener('click', function (event) {
+                        // canClickがfalseのときはここで処理を中断する
+                        if (!canClick) {
+                          return;
+                        }
+                       
+                        // canClickをfalseに変更して、2秒後にcanClickをtrueに戻す
+                        canClick = false;
+                        setTimeout(() => {
+                          canClick = true;
+                        }, 86460000);
+                        alert('はいを選択した場合、24時間クリックできなくなります。よろしいですか？')
+                      });
+                    </script>
                 <div class=" flex flex-row">
                     <div class='paginate'>
                         {{ $posts->links() }}

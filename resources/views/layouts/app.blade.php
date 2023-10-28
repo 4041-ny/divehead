@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    
     <head>
-        <div class=" text-4xl font-extrabold  text-center m-8 container">
+        <h1 class=" text-4xl font-extrabold  text-center m-8 container">
            <a href="{{ route('dashboard') }}">Dive Head</a>
-        </div>
-        
+        </h1>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -26,7 +26,7 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white shadow">
+                <header class="bg-white">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>

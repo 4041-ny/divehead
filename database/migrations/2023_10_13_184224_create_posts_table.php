@@ -21,6 +21,8 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->foreignId('category_id')->constrained();
+            $table->boolean('is_done')->default(false);
+            $table->timestamp('finished_at')->nullable();
         });
     }
 
