@@ -52,6 +52,7 @@ use Carbon\Carbon;
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
+    
     public function delete(Post $post)
     {
         $post->delete();
@@ -60,15 +61,15 @@ use Carbon\Carbon;
       
 	public function dashboard(Post $post,Request $request)
 	{
-	    //dd($post->get());
-	    $log_list = TaskLog::where("date_key","like",date("Y") . "%")->get();
 	    $task= Tasklog::all();
-	    return view('dashboard')->with(['posts'=>$post->get() ,'task'=>$task ,"log_list" => $log_list]);
+	    return view('dashboard')->with(['posts'=>$post->get() ,'task'=>$task]);
 	}
+	
     public function completion(Post $post)
     {
         $post->update(['is_done' => true, 'finished_at' => now()]);
         return view('posts.completion');
+        
     }
 	
 }

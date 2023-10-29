@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    
     <head>
         <h1 class=" text-4xl font-extrabold  text-center m-8 container">
            <a href="{{ route('dashboard') }}">Dive Head</a>
@@ -18,7 +17,10 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
+        <script src="backend.js" charset="utf-8"></script>
+        <script src="/path/to/anime.min.js"></script>
+   
     </head>
     
     <body class="font-sans antialiased ">

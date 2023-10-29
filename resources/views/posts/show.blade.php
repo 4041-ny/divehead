@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="limit">
-                    <label for="hs-feedback-post-comment-name-1" class="block mb-2 text-sm font-medium">期日</label>
+                    <label for="hs-feedback-post-comment-name-1" class="block mb-2 text-sm font-medium">目安/label>
                         <p class='limit'>{{ $post->limit }}</p> 
                                 
                     </div>

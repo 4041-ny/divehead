@@ -1,10 +1,10 @@
 import './bootstrap';
 
-import anime from 'anime.min.js';
-
 import Alpine from 'alpinejs';
 
 import './calendar';
+
+import anime from 'animejs'
 
 window.Alpine = Alpine;
 
