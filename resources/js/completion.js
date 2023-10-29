@@ -1,5 +1,10 @@
 import anime from 'animejs'
-var timeline = anime.timeline();
+
+var timeline = anime.timeline({
+    direction: 'alternate',
+    loop:true,
+    delay:1000
+});
 
 timeline
   .add({
@@ -8,9 +13,11 @@ timeline
   })
   .add({
     targets: '#elem2',
-    translateX: 250
+    translateX: 250,
+    offset:'-=600'
   })
   .add({
     targets: '#elem3',
-    translateX: 250
+    translateX: 250,
+    offset:'-=800'
   });

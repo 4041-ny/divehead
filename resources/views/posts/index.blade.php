@@ -6,7 +6,7 @@
     <div class="mt-5 p-4 relative z-10 bg-white  sm:mt-10 md:p-10">
       <div class="grid grid-cols-2">
         <div class="item-center text-center">
-          <div class="font-extrabold">1日に1回の「やってみる」</div>
+          <div class="font-serif font-extrabold text-2xl">1日に1回の「やってみる」</div>
         </div>
         <div>
             <button type="button" @if(!$posts->first()->canCreate()) disabled @endif class="w-2/3 py-3 px-4  inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-900 text-white text-sm font-semibold bg-gray-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
@@ -77,10 +77,10 @@
                                       </ul>
                                     </div>
                                     <div class="flex flex-row md:justify-between">
-                                      <form action="/completion/{{$post->id}}" method='post'>
+                                      <form action ="/completion/{{$post->id}}" method='post'>
                                         @csrf
-                                        <div onclick="animetion({{ $post->id }})" class="font-semibold bg-gray-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all inline-flex items-center gap-1.5 rounded-lg  border-gray-800 bg-gray-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm">
-                                            <input type="submit" value="完了"/>
+                                        <div class="font-semibold bg-gray-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all inline-flex items-center gap-1.5 rounded-lg  border-gray-800 bg-gray-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm">
+                                            <input name="add" type="submit" value="完了"/>
                                         </div>
                                     </form>
                                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
@@ -106,26 +106,6 @@
                                 document.getElementById(`form_${id}`).submit();
                             }
                         }
-                    </script>
-                    <script>
-                      // h1の要素をEventTargetとする
-                      const clickTarget = document.getElementById('time-button')
-                       
-                      // 非同期通信などで一連の通信が完了するまで、クリックイベントを無効化したいときに使える手法
-                      let canClick = true;
-                      clickTarget.addEventListener('click', function (event) {
-                        // canClickがfalseのときはここで処理を中断する
-                        if (!canClick) {
-                          return;
-                        }
-                       
-                        // canClickをfalseに変更して、2秒後にcanClickをtrueに戻す
-                        canClick = false;
-                        setTimeout(() => {
-                          canClick = true;
-                        }, 86460000);
-                        alert('はいを選択した場合、24時間クリックできなくなります。よろしいですか？')
-                      });
                     </script>
                 <div class=" flex flex-row">
                     <div class='paginate'>

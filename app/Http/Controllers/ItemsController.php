@@ -20,9 +20,6 @@ class ItemsController extends Controller
      */
     public function index(Post $post)
     {
-        
-        
-        
         $labels = [];
         $completions = [];
         
