@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between  h-16 border border-gray-800 rounded-full" >
             <div class="flex">
-                
+                <!-- logo -->
                 <div class="shrink-0 flex items-center ml-4">
                     <a href="{{ route('dashboard') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="136" height="97" version="1.0" viewBox="0 0 116.88 87.75">

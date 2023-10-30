@@ -15,7 +15,6 @@ class Post extends Model
         'title',
         'body',
         'category_id',
-        'limit',
         'is_done',
         'finished_at',
         
@@ -36,7 +35,7 @@ class Post extends Model
     
     public function canCreate()
     {
-        $diff = Carbon::now()->diffInHours($this->created_at);
+        $diff = Carbon::now()->diffInHours($this->created_at); //ボタンを押した時の差分表示
         if($diff > 24)
         {
             return true;
@@ -46,5 +45,4 @@ class Post extends Model
             return false;
         }
     }
-     
 }

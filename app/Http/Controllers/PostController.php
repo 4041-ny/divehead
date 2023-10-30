@@ -41,12 +41,7 @@ use Carbon\Carbon;
         return view('posts.create')->with(['categories' => $category->get()]);
     }
     
-    public function limit(Post $post)
-    {
-        return view('posts.limit')->with(['post'=>$post]);
-    }
-    
-    public function store(Request $request, Post $post)
+    public function store(PostRequest $request, Post $post)
     {
         $input = $request['post'];
         $post->fill($input)->save();

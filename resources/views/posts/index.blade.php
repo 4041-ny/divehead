@@ -6,8 +6,9 @@
     <div class="mt-5 p-4 relative z-10 bg-white  sm:mt-10 md:p-10">
       <div class="grid grid-cols-2">
         <div class="item-center text-center">
-          <div class="font-serif font-extrabold text-2xl">1日に1回の「やってみる」</div>
+          <div class="not-italic font-extrabold text-xl overline">1日に1回の「やってみる」</div>
         </div>
+        <!-- ２４時間後に復活する-->
         <div>
             <button type="button" @if(!$posts->first()->canCreate()) disabled @endif class="w-2/3 py-3 px-4  inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-900 text-white text-sm font-semibold bg-gray-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
               <a href=@if($posts->first()->canCreate()) "/posts/create" @else "javascript:void(0)"@endif>Let's dive</a>
@@ -23,6 +24,7 @@
                         <p class="ttl">TASK MISSION</p>
                     </div>
                 </div>
+                <!--PostControllerで作られたタスクたちをここで表示 -->
                     <div class='posts'>
                             <ul>
                                 @foreach ($posts as $post)
@@ -31,9 +33,9 @@
                                       <ul class="space-y-4">
                                         <li class="flex gap-4">
                                           <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-100">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                                            </svg>
+                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M3.75 18h15A2.25 2.25 0 0021 15.75v-6a2.25 2.25 0 00-2.25-2.25h-15A2.25 2.25 0 001.5 9.75v6A2.25 2.25 0 003.75 18z" />
+                                              </svg>
                                           </div>
                                           <div class="flex-1">
                                             <a href= "/posts/{{ $post->id }}"><div class="text-xl font-medium leading-loose ">{{ $post->title }}</h2></a>
@@ -43,7 +45,7 @@
                                         <li class="flex gap-4">
                                           <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-100">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                              <path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M3.75 18h15A2.25 2.25 0 0021 15.75v-6a2.25 2.25 0 00-2.25-2.25h-15A2.25 2.25 0 001.5 9.75v6A2.25 2.25 0 003.75 18z" />
+                                              <path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M4.5 10.5h6.75V15H4.5v-4.5zM3.75 18h15A2.25 2.25 0 0021 15.75v-6a2.25 2.25 0 00-2.25-2.25h-15A2.25 2.25 0 001.5 9.75v6A2.25 2.25 0 003.75 18z" />
                                             </svg>
                                           </div>
                                           <div class="flex-1">
@@ -54,35 +56,27 @@
                                         <li class="flex gap-4">
                                           <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-100">
                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                              <path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M4.5 10.5h6.75V15H4.5v-4.5zM3.75 18h15A2.25 2.25 0 0021 15.75v-6a2.25 2.25 0 00-2.25-2.25h-15A2.25 2.25 0 001.5 9.75v6A2.25 2.25 0 003.75 18z" />
-                                            </svg>
-                                          </div>
-                                          <div class="flex-1">
-                                            <div class="text-xl font-medium leading-loose">
-                                            <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></div>
-                                          </div>
-                                        </li>
-                                        
-                                        <li class="flex gap-4">
-                                          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-100">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                               <path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M4.5 10.5H18V15H4.5v-4.5zM3.75 18h15A2.25 2.25 0 0021 15.75v-6a2.25 2.25 0 00-2.25-2.25h-15A2.25 2.25 0 001.5 9.75v6A2.25 2.25 0 003.75 18z" />
                                             </svg>
                                           </div>
                                           <div class="flex-1">
-                                            <div class="text-xl font-medium leading-loose">{{ $post->limit }}</div>
-                                          </div>
+                                            <div class="text-xl font-medium leading-loose">
+                                              <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></div>
+                                            </div>
                                         </li>
-                                        
+  
                                       </ul>
                                     </div>
                                     <div class="flex flex-row md:justify-between">
-                                      <form action ="/completion/{{$post->id}}" method='post'>
-                                        @csrf
-                                        <div class="font-semibold bg-gray-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all inline-flex items-center gap-1.5 rounded-lg  border-gray-800 bg-gray-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm">
-                                            <input name="add" type="submit" value="完了"/>
-                                        </div>
-                                    </form>
+                                           @if( $post->is_done == 1)
+                                          <a type="button" class="font-semibold bg-red-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all inline-flex items-center gap-1.5 rounded-lg  border-gray-800 bg-gray-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm">
+                                          完了
+                                          </a>
+                                          @else
+                                          <a type="button" href ="/completion/{{$post->id}}" class="font-semibold bg-blue-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all inline-flex items-center gap-1.5 rounded-lg  border-gray-800 bg-gray-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm">
+                                          未完了
+                                          </a>
+                                          @endif 
                                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                                             @csrf
                                             @method('DELETE')
@@ -107,7 +101,7 @@
                             }
                         }
                     </script>
-                <div class=" flex flex-row">
+                <div class="flex flex-row">
                     <div class='paginate'>
                         {{ $posts->links() }}
                     </div>

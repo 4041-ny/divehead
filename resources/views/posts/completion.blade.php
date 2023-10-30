@@ -1,6 +1,9 @@
-<x-app-layout> <a href="/">タスクへ戻る</a>
-
+<x-app-layout> 
+<div class="w-2/3 py-3 px-4  inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-900 text-white text-sm font-semibold bg-gray-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
+<a href="/">タスクへ戻る</a>
+</div>
 <h1 class="font-sans text-amber-500 text-center text-2xl font-extrabold">COMPLETEおめでとうございます！！あっ誰かいたずらしたみたいですね。</h1>
+<!--completion -->
 <div class="wrapper">
       <div class="svg1"> 
       <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" version="1.0" viewBox="0 0 375 375">
@@ -18,7 +21,8 @@
         </svg>
       </div>
     </div>
-    <div id="timelineParameters">
+  <!--3つの図形 --> 
+    <div id="timelineParameters"> 
       <div class="line">
         <div class="square el"></div>
       </div>
@@ -29,11 +33,13 @@
         <div class="triangle el"></div>
       </div>
     </div>
+    <!--ホッケー -->
     <div class="container">  
       <div class="bar bar1"></div>
       <div class="ball"></div>
       <div class="bar bar2"></div>
-    <div>
+    </div>
+    
     <style>
       .wrapper{
           width: 100px;
@@ -66,30 +72,7 @@
           top: -6px;
           stroke:#0000FF;
         }
-        .container {
-          width: 500px;
-          display: inline-block;
-          transform: translateY(200px);
-        }
-        .bar {
-          background: #FFFFFF;
-          width: 10px;
-          height: 100px;
-        }
-        .bar1 {
-          float: left;
-        }
-        .bar2 {
-          float: right;
-        }
-        .ball {
-          background: #FFFFFF;
-          width: 10px;
-          height: 10px;
-          position: relative;
-          top: 45px;
-          left: 10px;
-        }
+        
         .line {
           position: relative;
         }
@@ -121,7 +104,33 @@
           border-bottom: 43.3012px solid #0f97ea;
           border-left: 25px solid transparent; 
         }
+        
+        .container {
+          width: 500px;
+          display: inline-block;
+          transform: translateY(200px);
+        }
+        .bar {
+          background: #FFFFFF;
+          width: 10px;
+          height: 100px;
+        }
+        .bar1 {
+          float: left;
+        }
+        .bar2 {
+          float: right;
+        }
+        .ball {
+          background: #FFFFFF;
+          width: 10px;
+          height: 10px;
+          position: relative;
+          top: 45px;
+          left: 10px;
+        }
         </style>
+        
         <script>
         const path_anime1 = anime({
           targets: '.svg1 path',
@@ -148,6 +157,7 @@
           direction: 'alternate',
           loop: true
         });
+        
         var loop = true;
         var easing = 'linear';
         var direction = 'alternate';
@@ -234,7 +244,6 @@
           direction: 'alternate',
           loop: true
         });
-        
         timelineParameters
           .add({
             targets: '#timelineParameters .square.el',
@@ -256,6 +265,7 @@
             duration: 3000,
             offset: 400
           });
+          
         </script>
 </x-app-layout>
 

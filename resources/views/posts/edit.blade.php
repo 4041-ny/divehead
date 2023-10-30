@@ -16,18 +16,12 @@
                                 <input type='text' name='post[title]' value="{{ $post->title }}" class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4" placeholder="やってみること"/>
                         </div>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
                         <div class="category">
                             <div class="mb-4 sm:mb-8">
                                 <label for="hs-feedback-post-comment-name-1" class="block mb-2 text-sm font-medium">タスク種類</label>
                                     <input type='select' name='post[category]' value="{{ $post->category->name}}"class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4"/>
                             </div>
                         </div>
-                        <div class="limit">
-                            <label for="hs-feedback-post-comment-name-1" class="block mb-2 text-sm font-medium">目安</label>
-                                    <input type='text' name='post[limit]' value="{{ $post->limit }}"class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4" placeholder="今日"/>                    
-                        </div>
-                    </div>
                     <div class="body">
                         <div class="mb-4 sm:mb-8">
                             <label for="hs-feedback-post-comment-name-1" class="block mb-2 text-sm font-medium">タスク詳細</label>

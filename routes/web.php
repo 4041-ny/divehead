@@ -33,11 +33,9 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::put('/posts/{post}', 'update')->name('update');
     Route::delete('posts/{post}','delete')->name('delete');
     Route::get('/posts/{post}/edit', 'edit')->name('edit');
-    Route::put('/posts/{post}', 'change')->name('change');
-    
 });
 Route::get('/dashboard' ,[PostController::class, 'dashboard'])->name('dashboard');
-Route::post('/completion/{post}' ,[PostController::class ,'completion'])->name("completion");
+Route::get('/completion/{post}' ,[PostController::class ,'completion'])->name("completion");
 
 Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");
 

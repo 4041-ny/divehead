@@ -15,8 +15,6 @@
                             <p class='title__error' style='color:red'> {{ $errors->first('post.title') }}</p>
                 </div>
             </div>
-    
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
                 <div class="category">
                     <div class="mb-4 sm:mb-8">
                         <label for="hs-feedback-post-comment-name-1" class="block mb-2 text-sm font-medium">タスク種類</label>
@@ -27,12 +25,6 @@
                             </select>
                     </div>
                 </div>
-                <div class="limit">
-                    <label for="hs-feedback-post-comment-name-1" class="block mb-2 text-sm font-medium">目安</label>
-                            <input type="text"name="post[limit]" class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4" placeholder="時期や状況でもいいいです"><value="{{ old('post.limit') }}"/>
-                                <p class='limit__error' style='color:red'> {{ $errors->first('post.limit') }}</p>
-                    </div>
-            </div>
             <div class="body">
                 <div class="mb-4 sm:mb-8">
                     <label for="hs-feedback-post-comment-name-1" class="block mb-2 text-sm font-medium">タスク詳細</label>
