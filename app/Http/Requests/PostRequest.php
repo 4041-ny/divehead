@@ -10,11 +10,12 @@ class PostRequest extends FormRequest
      * Determine if the user is authorized to make this request.
      *
      * @return bool
-     */
-    public function authorize()
+     *
+    //public function authorize()
     {
         return false;
     }
+    **/
 
     /**
      * Get the validation rules that apply to the request.
@@ -26,8 +27,6 @@ class PostRequest extends FormRequest
         return [
             'post.title'=>'required|string|max:500',
             'post.body' =>'required|string|max:4000',
-            'post.limit'=>'repuired|string|max:15',
-            
         ];
     }
 }

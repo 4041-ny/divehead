@@ -23,7 +23,7 @@ class ItemsController extends Controller
         $labels = [];
         $completions = [];
         
-        for($i = 0;$i < 4; $i++)
+        for($i = 0;$i < 4; $i++)  //必ず４件出力されるようにする
         {
             $span = 7*$i;
             $startDay = Carbon::today()->subDays($span);
@@ -36,9 +36,10 @@ class ItemsController extends Controller
             $label = ($i+1).'週間前';
             array_push($labels, $label);
         }
+       
         return view('items.index')->with(['completions'=>$completions,'labels'=>$labels]);
     
-        
+        //1ヵ月の１週間単位で出力、where関数で抽出し、絶対値の７で割っています。
     }
     
 
