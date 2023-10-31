@@ -92,7 +92,7 @@ class LineLoginController extends Controller
      
       if($user) {
         Auth::login($user);
-        return redirect('/home');
+        return redirect('/dashboard');
  
       
       }else {
@@ -102,7 +102,7 @@ class LineLoginController extends Controller
         $user->name=$profile->displayName;
         $user->save();
         Auth::login($user);
-        return redirect('/home');
+        return redirect('/dashboard');
       }
     }
 }

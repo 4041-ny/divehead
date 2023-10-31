@@ -4,9 +4,30 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Item extends Model
 {
     use HasFactory;
-    public $guarded = ['id', 'created_at'];
+    
+    use SoftDeletes;
+    
+    public function category()
+    {
+    return $this->belongsTo(Category::class);
+    }
+    public function posts()   
+    {
+    return $this->hasMany(Post::class);  
+    }   
+
+
+    protected $fillable = [
+            'title',
+            'body',
+            'category_id',
+            'limit',
+            ];
+            
 }

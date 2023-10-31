@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('provider')->nullable();
-            $table->string('line_id')->nullable();
-            
+        Schema::create('items', function (Blueprint $table) {
+            $table->id();
+            $table->string('title')->nullable();
+            $table->string('body')->nullable();
+            $table->string('limit')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+            $table->foreignId('category_id')->constrained();
         });
     }
 
@@ -27,8 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('items');
     }
 };

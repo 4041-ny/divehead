@@ -18,16 +18,19 @@ class PostSeeder extends Seeder
     public function run()
     {
             DB::table('posts')->insert([
-                'title' => '命名の心得',
-                'body' => '命名はデータを基準に考える',
+                'title' => '横浜へ行く',
+                'body' => 'いい気分です',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
+                'category_id' => 1 ,
          ]);
+                
             DB::table('posts')->insert([
-                'title' => 'エラー文',
-                'body' => '読めるようになれば怖くない',
+                'title' => '掃除をする',
+                'body' => '虫がいた',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
+                'category_id' => 2 ,
          ]);
         
 		

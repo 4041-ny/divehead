@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use App\Models\Category;
-
-
+use App\Models\Tasklog;
+use App\Models\Completion;
+use Carbon\Carbon;
 
  
  class PostController extends Controller
@@ -20,7 +21,7 @@ use App\Models\Category;
     
     public function show(Post $post)
     {
-        return view('posts.show ')->with(['post'=>$post]);
+        return view('posts.show')->with(['post'=>$post]);
     }
     
     public function edit(Post $post)
@@ -40,21 +41,30 @@ use App\Models\Category;
         return view('posts.create')->with(['categories' => $category->get()]);
     }
     
-    public function limit()
-    {
-        return view('posts.limit');
-    }
-    
     public function store(PostRequest $request, Post $post)
     {
         $input = $request['post'];
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
+    
     public function delete(Post $post)
     {
         $post->delete();
         return redirect('/');
     }
-    
+      
+	public function dashboard(Post $post,Request $request)
+	{
+	    $task= Tasklog::all();
+	    return view('dashboard')->with(['posts'=>$post->get() ,'task'=>$task]);
+	}
+	
+    public function completion(Post $post)
+    {
+        $post->update(['is_done' => true, 'finished_at' => now()]);
+        return view('posts.completion');
+        
+    }
+	
 }
