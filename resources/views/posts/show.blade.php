@@ -45,7 +45,10 @@
           <button class="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
             <div class="edit"><a href="/posts/{{ $post->id }}/edit">編集</a></div>
             </button>
-            　</form>          
+            　</form> 
+            <div>
+              <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+            </div>
            <div class="footer">
             <button type="button" class="font-semibold bg-gray-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all inline-flex items-center gap-1.5 rounded-lg  border-gray-800 bg-gray-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm">
                 <a href="/">TASKMISSIONに戻る</a>

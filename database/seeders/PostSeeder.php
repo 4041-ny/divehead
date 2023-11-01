@@ -23,6 +23,7 @@ class PostSeeder extends Seeder
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
                 'category_id' => 1 ,
+                'image_url'=> 'header.jpg',
          ]);
                 
             DB::table('posts')->insert([
@@ -31,6 +32,7 @@ class PostSeeder extends Seeder
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
                 'category_id' => 2 ,
+                'image_url'=> 'header.jpg',
          ]);
         
 		

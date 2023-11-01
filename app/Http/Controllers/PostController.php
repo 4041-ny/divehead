@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Tasklog;
 use App\Models\Completion;
 use Carbon\Carbon;
+use Cloudinary;
 
  
  class PostController extends Controller
@@ -17,6 +18,11 @@ use Carbon\Carbon;
     public function index(Post $post)
     {
         return view('posts.index')->with(['posts' => $post->getPaginateByLimit(1)]);
+        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        $input += ['image_url' => $image_url]; 
+        dd($image_url);
+        
+        
     }
     
     public function show(Post $post)
