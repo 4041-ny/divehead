@@ -6,14 +6,13 @@
     <div class="mt-5 p-4 relative z-10 bg-white  sm:mt-10 md:p-10">
       <div class="grid grid-cols-2">
         <div class="item-center text-center">
-          <div class="not-italic font-extrabold text-xl overline">1日に1回の「やってみる」</div>
+          <div class="not-italic font-extrabold text-xl">1日に1回の「やってみる」</div>
         </div>
         <!-- ２４時間後に復活する-->
         <div>
-            <button type="button" @if(!$posts->first()->canCreate()) disabled @endif class="w-2/3 py-3 px-4  inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-900 text-white text-sm font-semibold bg-gray-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all">
+            <button type="button" @if(!$posts->first()->canCreate()) disabled @endif class="w-2/3 py-3 px-4  inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-900 text-white text-sm font-semibold bg-gray-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all shadow-2xl">
               <a href=@if($posts->first()->canCreate()) "/posts/create" @else "javascript:void(0)"@endif>Let's dive</a>
             </button>
-          </form>  
         </div>
       </div>
     </div>
@@ -76,7 +75,14 @@
                                           <a type="button" href ="/completion/{{$post->id}}" class="font-semibold bg-blue-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all inline-flex items-center gap-1.5 rounded-lg  border-gray-800 bg-gray-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm">
                                           未完了
                                           </a>
-                                          @endif 
+                                          @endif
+                                          
+                                    <form action="/posts" method="POST" enctype="multipart/form-data">
+                                      <div class="image">
+                                          <input type="file" name="image">
+                                      </div>
+                                    </form>
+                                    
                                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                                             @csrf
                                             @method('DELETE')

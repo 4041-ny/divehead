@@ -1,7 +1,8 @@
 <x-app-layout>
-<!--<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">-->
-@vite(['resources/css/app.css','resources/js/app.js'])
-
+    <x-slot name="calender">
+        @vite(['resources/css/app.css','resources/js/app.js'])
+        
+    </X-slot>
 <x-slot name="slot">
             <div id="calendar"></div>
                    <div id="modal-add" class="modal">
@@ -118,7 +119,21 @@
                         cursor: pointer;
                     }
                     </style>
-            </div>
+                </div>
         </div>
-            </x-slot>
+         <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/index.global.min.js'></script>
+     <script src="{{ asset('/js/index.global.js') }}"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              var calendarEl = document.getElementById('calendar');
+              var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                 events:'1441second@gmail.com',
+                googleCalendarApiKey: "{{config('app.google_api_key')}}"
+              });
+              calendar.render();
+              console.log(1);
+            });
+        </script>
+    </x-slot>
 </x-app-layout>

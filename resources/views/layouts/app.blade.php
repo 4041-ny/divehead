@@ -15,9 +15,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
-        <script src="backend.js" charset="utf-8"></script>
-        <script src="/path/to/anime.min.js"></script>
+        
     </head>
     
     <body class="font-sans antialiased ">

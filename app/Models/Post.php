@@ -17,7 +17,7 @@ class Post extends Model
         'category_id',
         'is_done',
         'finished_at',
-        
+        'image_url', 
     ];
     protected $casts = [
         'is_done'=>'boolean'
