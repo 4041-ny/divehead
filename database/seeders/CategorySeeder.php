@@ -16,7 +16,7 @@ class CategorySeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-                'name' => 'Hobby',
+                'name' => 'Casual',
                
          ]);
          
@@ -25,8 +25,28 @@ class CategorySeeder extends Seeder
                
          ]);
          
-         DB::table('categories')->insert([
-                'name' => 'Private',
+        DB::table('categories')->insert([
+                'name' => 'Mode',
+               
+         ]);
+         
+        DB::table('categories')->insert([
+                'name' => 'Mode',
+               
+         ]);
+        
+        DB::table('categories')->insert([
+                'name' => 'Classic',
+               
+         ]);
+         
+        DB::table('categories')->insert([
+                'name' => 'Street',
+               
+         ]);
+        
+        DB::table('categories')->insert([
+                'name' => 'Others',
                
          ]);
     }

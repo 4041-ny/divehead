@@ -17,12 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('body');
+            $table->string('image_url');
             $table->timestamps();
             $table->softDeletes();
             $table->foreignId('category_id')->constrained();
             $table->boolean('is_done')->default(false);
             $table->timestamp('finished_at')->nullable();
-            $table->string('image_url'); 
+            
             
         });
     }

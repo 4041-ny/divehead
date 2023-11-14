@@ -18,11 +18,6 @@ use Cloudinary;
     public function index(Post $post)
     {
         return view('posts.index')->with(['posts' => $post->getPaginateByLimit(1)]);
-        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
-        $input += ['image_url' => $image_url]; 
-        dd($image_url);
-        
-        
     }
     
     public function show(Post $post)
@@ -50,6 +45,8 @@ use Cloudinary;
     public function store(PostRequest $request, Post $post)
     {
         $input = $request['post'];
+        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        $input += ['image_url' => $image_url];
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
