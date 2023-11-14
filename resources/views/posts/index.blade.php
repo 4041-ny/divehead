@@ -6,7 +6,7 @@
     <div class="mt-5 p-4 relative z-10 bg-white  sm:mt-10 md:p-10">
       <div class="grid grid-cols-2">
         <div class="item-center text-center">
-          <div class="not-italic font-extrabold text-xl">1日に1回の「やってみる」</div>
+          <div class="not-italic font-extrabold text-xl">１日の「ファッション」に挑み、記録する</div>
         </div>
         <!-- ２４時間後に復活する-->
         <div>
@@ -20,7 +20,7 @@
     <div class="mt-5 p-4 z-10 bg-gray border rounded-xl sm:mt-10 md:p-10">
            <div class="w-full text-white bg-gray-800  rounded-xl">
                     <div class="text-center text-2xl">
-                        <p class="ttl">TASK MISSION</p>
+                        <p class="ttl">Today Coordinate</p>
                     </div>
                 </div>
                 <!--PostControllerで作られたタスクたちをここで表示 -->
@@ -76,26 +76,22 @@
                                           未完了
                                           </a>
                                           @endif
-                                          
-                                    <form action="/posts" method="POST" enctype="multipart/form-data">
-                                      <div class="image">
-                                          <input type="file" name="image">
-                                      </div>
-                                    </form>
-                                    
-                                    <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                              <button type="button" onclick="deletePost({{ $post->id }})"class="inline-flex items-center gap-1.5 rounded-lg border border-red-500 bg-red-500 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-red-700 hover:bg-red-200 focus:ring focus:ring-red-200 disabled:cursor-not-allowed disabled:border-red-300 disabled:bg-red-300">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="h-4 w-4">
-                                                  <path fill="currentColor" d="M13.5 6.5V7h5v-.5a2.5 2.5 0 0 0-5 0Zm-2 .5v-.5a4.5 4.5 0 1 1 9 0V7H28a1 1 0 1 1 0 2h-1.508L24.6 25.568A5 5 0 0 1 19.63 30h-7.26a5 5 0 0 1-4.97-4.432L5.508 9H4a1 1 0 0 1 0-2h7.5Zm2.5 6.5a1 1 0 1 0-2 0v10a1 1 0 1 0 2 0v-10Zm5-1a1 1 0 0 0-1 1v10a1 1 0 1 0 2 0v-10a1 1 0 0 0-1-1Z" />
-                                                </svg>
-                                                削除
-                                            </button>
-                                    </form>
+                                      <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+                                              @csrf
+                                              @method('DELETE')
+                                                <button type="button" onclick="deletePost({{ $post->id }})"class="inline-flex items-center gap-1.5 rounded-lg border border-red-500 bg-red-500 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-red-700 hover:bg-red-200 focus:ring focus:ring-red-200 disabled:cursor-not-allowed disabled:border-red-300 disabled:bg-red-300">
+                                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="h-4 w-4">
+                                                    <path fill="currentColor" d="M13.5 6.5V7h5v-.5a2.5 2.5 0 0 0-5 0Zm-2 .5v-.5a4.5 4.5 0 1 1 9 0V7H28a1 1 0 1 1 0 2h-1.508L24.6 25.568A5 5 0 0 1 19.63 30h-7.26a5 5 0 0 1-4.97-4.432L5.508 9H4a1 1 0 0 1 0-2h7.5Zm2.5 6.5a1 1 0 1 0-2 0v10a1 1 0 1 0 2 0v-10Zm5-1a1 1 0 0 0-1 1v10a1 1 0 1 0 2 0v-10a1 1 0 0 0-1-1Z" />
+                                                  </svg>
+                                                  削除
+                                              </button>
+                                      </form>
                                     </div>
                                 @endforeach
                                 </ul>
+                            </div>
+                            <div>
+                              <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
                             </div>
                         </div>
                     <script>

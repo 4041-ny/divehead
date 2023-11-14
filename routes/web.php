@@ -51,17 +51,6 @@ Route::post('/calendar/get',  [EventController::class, 'get'])->name("get");
 Route::put('/calendar/update', [EventController::class, 'update'])->name("update");
 Route::delete('/calendar/delete', [EventController::class, 'delete'])->name("delete"); 
 
-Route::get('web_push/create', [WebPushController::class, 'create'])->name('create');
-Route::post('web_push', [WebPushController::class, 'store'])->name('store');
-
-// 全ユーザーにプッシュ通知
-Route::get('web_push_test', function(){
-
-    $users = \App\User::all();
-    \Notification::send($users, new \App\Notifications\EventAdded());
-
-});
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
