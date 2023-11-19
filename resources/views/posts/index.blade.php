@@ -6,7 +6,7 @@
     <div class="mt-5 p-4 relative z-10 bg-white  sm:mt-10 md:p-10">
       <div class="grid grid-cols-2">
         <div class="item-center text-center">
-          <div class="not-italic font-extrabold text-xl">１日の「ファッション」に挑み、記録する</div>
+          <div class="not-italic font-extrabold text-xl">１日の「ファッション」を発散と記録</div>
         </div>
         <!-- ２４時間後に復活する-->
         <div>
@@ -69,11 +69,11 @@
                                     <div class="flex flex-row md:justify-between">
                                            @if( $post->is_done == 1)
                                           <a type="button" class="font-semibold bg-red-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all inline-flex items-center gap-1.5 rounded-lg  border-gray-800 bg-gray-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm">
-                                          完了
+                                          1UP
                                           </a>
                                           @else
                                           <a type="button" href ="/completion/{{$post->id}}" class="font-semibold bg-blue-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all inline-flex items-center gap-1.5 rounded-lg  border-gray-800 bg-gray-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm">
-                                          未完了
+                                          Coordinate level up?
                                           </a>
                                           @endif
                                       <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">

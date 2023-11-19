@@ -1,5 +1,5 @@
 <x-app-layout> 
-  <h1 class="font-sans text-amber-500 text-center text-2xl font-extrabold m-8">COMPLETEおめでとうございます！！</h1>
+  <h1 class="font-sans text-amber-500 text-center text-2xl font-extrabold m-8">あなたのコーデ力が一段とアップしました。</h1>
     <div class="text-center mx-auto justery-between">
       <canvas id="canvas" width="480" height="400" ></canvas>
     </div>
@@ -137,42 +137,10 @@
           let interval = setInterval(draw, 10);
         </script>
         
-          <div class="wrapper">
-            <p>おみくじ<br>ボタンをクリックしてください。</p>
-              <div class="wrapper-button">
-                <button id="button" class="button">おみくじを引く</button>
-              </div>
-              <p id="result"></p>
-          </div>
-        
-              <script>
-                  window.onload = function () {
-                    const list = {
-                      "大吉" : 10,
-                      "吉" : 15,
-                      "中吉" : 20,
-                      "小吉" : 25,
-                      "末吉" :15,
-                      "凶" : 10,
-                      "大凶" : 5,
-                    };
-                
-                    document.getElementById("button").onclick = function () {
-                      var random = Math.floor(Math.random() * 100);
-                      var rate = 0;
-                      for(var data in list){
-                        rate += list[data];
-                        if(random <= rate){
-                          document.getElementById("result").textContent = data;
-                          return;
-                        }
-                      }
-                    }
-                  }
-              </script>
+          
 
   <div class="font-semibold bg-red-900 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all inline-flex items-center gap-1.5 rounded-lg  border-gray-800 bg-gray-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm">
-      <a href="/">タスクへ戻る</a>
+      <a href="/">Today Coordinateに戻る</a>
   </div>
 </x-app-layout>
 
