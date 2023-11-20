@@ -29,9 +29,7 @@
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                         @endif
-                        <button class="bg-green-600 font-medium  py-1 px-2  btn hover:green-500z rounded m-8 text-white">
-                           <a href="{{route('linelogin')}}">Log in</a>
-                        </button>
+                        
                     @endauth
                 </div>
             @endif

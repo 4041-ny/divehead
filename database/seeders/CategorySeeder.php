@@ -29,11 +29,6 @@ class CategorySeeder extends Seeder
                 'name' => 'Mode',
                
          ]);
-         
-        DB::table('categories')->insert([
-                'name' => 'Mode',
-               
-         ]);
         
         DB::table('categories')->insert([
                 'name' => 'Classic',
