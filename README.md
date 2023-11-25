@@ -24,14 +24,16 @@ Dive Headは服好きや意識がある方にコーディネートを共有し�
 
 |<img src="https://github.com/4041-ny/divehead/assets/140897208/d7f58dbc-b6d0-4732-927d-e7f0bd7e7ac8" width="500px">|<img src="https://github.com/4041-ny/divehead/assets/140897208/fce62f35-d095-40ec-b6fd-d8afc124fb69" width="500px">|
 |---|---|
-|毎１回Coordinate Level upボタンで行えるゲーム機能|コーディネート力を１週間ごとにグラフ化機能|
-
-
-
+|毎１回Coordinate Level upボタンで行えるゲーム機能|コーディネート力を１週間ごとにグラフ化する機能|
 
 ## 使用技術
-
-
+| Category  | Tool |
+| ------------- | ------------- |
+| fronted  | javascript  |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
 ## ER図
 <img src="https://github.com/4041-ny/divehead/assets/140897208/ec8ea493-cb77-45b6-885b-bd0612850fe1" width="500px">
 
