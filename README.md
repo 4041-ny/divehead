@@ -14,8 +14,19 @@ Dive Headは服好きや意識がある方にコーディネートを共有し�
 
 
 ## 画面や機能の説明
+|<img src="https://github.com/4041-ny/divehead/assets/140897208/6e9f6e73-728a-4fe4-8eba-da2b4a29e3f8" width="500px">|<img src="https://github.com/4041-ny/divehead/assets/140897208/afa44576-4a4f-4d94-89e7-16bc7a9e56b8" width="500px">|
+|---|---|
+|ロゴ||
 
-![image](https://github.com/4041-ny/divehead/assets/140897208/e96defd1-2645-4294-932c-b5e3e1f6a1d7)
+|<img src="https://github.com/4041-ny/divehead/assets/140897208/d309a829-304a-45b0-b733-96d309a8db5d" width="500px">|<img src="https://github.com/4041-ny/divehead/assets/140897208/149aeef0-1191-4321-b664-3f652fb4659c width="500px">|
+|---|---|
+|テキスト|テキスト|
+
+|<img src="https://github.com/4041-ny/divehead/assets/140897208/d7f58dbc-b6d0-4732-927d-e7f0bd7e7ac8 width="500px">|<img src="https://github.com/4041-ny/divehead/assets/140897208/fce62f35-d095-40ec-b6fd-d8afc124fb69 width="500px">|
+|---|---|
+|テキスト|テキスト|
+
+
 
 
 ## 使用技術
