@@ -27,20 +27,27 @@ Dive Headは服好きや意識がある方にコーディネートを共有し�
 |毎１回Coordinate Level upボタンで行えるゲーム機能|コーディネート力を１週間ごとにグラフ化する機能|
 
 ## 使用技術
-| Category  | Tool |
+ | Category  | Tool |
 | ------------- | ------------- |
-| fronted  | javascript  |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| Fronted  | javascript , tailwind , alpine js  |
+| Backend  | laravel , php  |
+| Infrastructure  | Amazon Web Services , heroku |
+| Datebase | MySQL |
+|etc.|Canba , Git , Github|
+
 ## ER図
+
 <img src="https://github.com/4041-ny/divehead/assets/140897208/ec8ea493-cb77-45b6-885b-bd0612850fe1" width="500px">
 
 ## 今後の展望
+常に開発を進めてまいります。以下のタスクを現在の目標として提示させていただきます。(新しく増えていきます)
+- [ ] 人工知能を使ったコーディネートを提案する機能
+- [ ] ユーザーの投稿に対するコメント機能　討論のような感じ
+- [ ] グラフのデータを増やす。先月比、昨年など
 
+## 作成者のご紹介
+COMING　SOON 少々お待ちください
 
-
-## 製作者ページ
-
+## 総括
+ここまで読んでいただきありがとうございます。学びそしてこれからアプリをより一層便利で、面白いものにしていきます。
 
