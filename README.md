@@ -16,15 +16,15 @@ Dive Headは服好きや意識がある方にコーディネートを共有し�
 ## 画面や機能の説明
 |<img src="https://github.com/4041-ny/divehead/assets/140897208/6e9f6e73-728a-4fe4-8eba-da2b4a29e3f8" width="500px">|<img src="https://github.com/4041-ny/divehead/assets/140897208/afa44576-4a4f-4d94-89e7-16bc7a9e56b8" width="500px">|
 |---|---|
-|ロゴ||
+|ロゴ|記録作成画面|
 
-|<img src="https://github.com/4041-ny/divehead/assets/140897208/d309a829-304a-45b0-b733-96d309a8db5d" width="500px">|<img src="https://github.com/4041-ny/divehead/assets/140897208/149aeef0-1191-4321-b664-3f652fb4659c width="500px">|
+|<img src="https://github.com/4041-ny/divehead/assets/140897208/d309a829-304a-45b0-b733-96d309a8db5d" width="500px">|<img src="https://github.com/4041-ny/divehead/assets/140897208/149aeef0-1191-4321-b664-3f652fb4659c" width="500px">|
 |---|---|
-|テキスト|テキスト|
+|編集、確認画面|コーディネート一覧表示画面(スクロール)|
 
-|<img src="https://github.com/4041-ny/divehead/assets/140897208/d7f58dbc-b6d0-4732-927d-e7f0bd7e7ac8 width="500px">|<img src="https://github.com/4041-ny/divehead/assets/140897208/fce62f35-d095-40ec-b6fd-d8afc124fb69 width="500px">|
+|<img src="https://github.com/4041-ny/divehead/assets/140897208/d7f58dbc-b6d0-4732-927d-e7f0bd7e7ac8" width="500px">|<img src="https://github.com/4041-ny/divehead/assets/140897208/fce62f35-d095-40ec-b6fd-d8afc124fb69" width="500px">|
 |---|---|
-|テキスト|テキスト|
+|毎１回Coordinate Level upボタンで行えるゲーム機能|コーディネート力を１週間ごとにグラフ化機能|
 
 
 
@@ -33,7 +33,8 @@ Dive Headは服好きや意識がある方にコーディネートを共有し�
 
 
 ## ER図
-![image](https://github.com/4041-ny/divehead/assets/140897208/ec8ea493-cb77-45b6-885b-bd0612850fe1)
+<img src="https://github.com/4041-ny/divehead/assets/140897208/ec8ea493-cb77-45b6-885b-bd0612850fe1" width="500px">
+
 ## 今後の展望
 
 
