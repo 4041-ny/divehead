@@ -90,8 +90,8 @@
                                 @endforeach
                                 </ul>
                             </div>
-                            <div>
-                              <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+                            <div class="flex justify-center">
+                              <img src="{{ $post->image_url }}" alt="画像が読み込めません。" width="300" hight="300"/>
                             </div>
                         </div>
                     <script>

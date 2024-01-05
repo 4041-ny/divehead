@@ -49,8 +49,8 @@
                                         </li>
                                       </ul>
                                     </div>
-                                    <div>
-                                      <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+                                    <div class="flex justify-center">
+                                      <img src="{{ $post->image_url }}" alt="画像が読み込めません。" width="300" hight="300"/>
                                     </div>
                                     <div class="m-8 flex items-center gap-4 before:h-px before:flex-1 before:bg-gray-300  before:content-[''] after:h-px after:flex-1 after:bg-gray-300  after:content-['']">Yesterday</div>
                                 @endforeach
