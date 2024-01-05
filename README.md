@@ -1,66 +1,50 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+![title](https://github.com/4041-ny/divehead/assets/140897208/cbda2cab-3e68-4edb-8e5a-0e633f2f9331)
+## Dive HeadのURL　
+是非お試しください。　
+https://divehead-8102785d9ee4.herokuapp.com
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## サービス概要
+Dive Headは服好きや意識がある方にコーディネートを共有し、記録することで客観的にファッションの面白さを広げていきます。
+グラフでコーデ力を見ることもできますし、ジャンル別でコーデを管理することもできます。
+ファッションのコーディネートを通じてユーザーの方々への面白さを追求することが目的です。
 
-## About Laravel
+## サービス開発背景、そして想い
+このプロダクトは、当方のファッション好きであることがきっかけです。１日のファッションを記録することで、その時の状況や心情などを記録したいと考えたことから生まれました。昨今、ファッションに対する意識の上昇と服装に対するトレンドの早期化などもあり、不特定多数のファッションを再確認することによる新たなファッションへの飛び込む意識を覚醒する。そんなアプリを私は作っていきたいと私は考えております。また面白さや楽しさがなくていけません。そのためアプリを開発していく中での前提条件としていきます。
+過去の自分のファッションに出会い、そこからインスピレーションが生まれることでの「面白さ」があると思います。そのためアプリを通してファッションを盛り上げていき、WEBとFASHIONをつなげていきたいと考えています。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 画面や機能の説明
+|<img src="https://github.com/4041-ny/divehead/assets/140897208/6e9f6e73-728a-4fe4-8eba-da2b4a29e3f8" width="500px">|<img src="https://github.com/4041-ny/divehead/assets/140897208/afa44576-4a4f-4d94-89e7-16bc7a9e56b8" width="500px">|
+|---|---|
+|ロゴ|記録作成画面|
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+|<img src="https://github.com/4041-ny/divehead/assets/140897208/d309a829-304a-45b0-b733-96d309a8db5d" width="500px">|<img src="https://github.com/4041-ny/divehead/assets/140897208/149aeef0-1191-4321-b664-3f652fb4659c" width="500px">|
+|---|---|
+|編集、確認画面|コーディネート一覧表示画面(スクロール)|
 
-## Learning Laravel
+|<img src="https://github.com/4041-ny/divehead/assets/140897208/d7f58dbc-b6d0-4732-927d-e7f0bd7e7ac8" width="500px">|<img src="https://github.com/4041-ny/divehead/assets/140897208/fce62f35-d095-40ec-b6fd-d8afc124fb69" width="500px">|
+|---|---|
+|毎１回Coordinate Level upボタンで行えるゲーム機能|コーディネート力を１週間ごとにグラフ化する機能|
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 使用技術
+ | Category  | Tool |
+| ------------- | ------------- |
+| Fronted  | javascript , tailwind , alpine js  |
+| Backend  | laravel , php  |
+| Infrastructure  | Amazon Web Services , heroku |
+| Datebase | MySQL |
+|etc.|Canba , Git , Github|
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## ER図
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<img src="https://github.com/4041-ny/divehead/assets/140897208/ec8ea493-cb77-45b6-885b-bd0612850fe1" width="500px">
 
-## Laravel Sponsors
+## 今後の展望
+順次開発を進めて参ります。以下のタスクを現在の目標として提示させていただきます。(新しく増えていきます)
+- [ ] 人工知能を使ったコーディネートを提案する機能
+- [ ] ユーザーの投稿に対するコメント機能　討論のような感じ
+- [ ] グラフのデータを増やす。先月比、昨年など
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## 総括
+ここまで読んでいただきありがとうございます。アプリをより一層便利で、面白いものにしていきます。よろしくお願い致します！！
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

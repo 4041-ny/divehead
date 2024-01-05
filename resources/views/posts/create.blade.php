@@ -11,7 +11,7 @@
             <div class="title">
                 <div class="mb-4 sm:mb-8">
                     <label for="hs-feedback-post-comment-name-1" class="block mb-2 text-sm font-medium">コーデタイトル</label>
-                    <input type="text"name="post[title]" d="hs-feedback-post-comment-name-1" class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4" placeholder="飛び込むこと"><value="{{ old('post.title') }}"/>
+                    <input type="text"name="post[title]" d="hs-feedback-post-comment-name-1" class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4" placeholder="お気に入り箇所"><value="{{ old('post.title') }}"/>
                     <p class='title__error' style='color:red'> {{ $errors->first('post.title') }}</p>
                 </div>
             </div>
@@ -28,7 +28,7 @@
             <div class="body">
                 <div class="mb-4 sm:mb-8">
                     <label for="hs-feedback-post-comment-name-1" class="block mb-2 text-sm font-medium">コーデ説明</label>
-                      <textarea name="post[body]"  id="hs-feedback-post-comment-textarea-1" name="hs-feedback-post-comment-textarea-1" rows="3" class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4" placeholder="具体的な検討内容、心情でもいいです">{{ old('post.body') }}</textarea>
+                      <textarea name="post[body]"  id="hs-feedback-post-comment-textarea-1" name="hs-feedback-post-comment-textarea-1" rows="3" class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4" placeholder="具体的なコーデ内容、心情でもいいです">{{ old('post.body') }}</textarea>
                         <p class='body__error' style='color:red'> {{ $errors->first('post.body') }}</p>
                 </div>
             </div>

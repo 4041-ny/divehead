@@ -45,12 +45,6 @@ Route::post('items/{completions}',[ItemController::class ,'index'])->name("item"
 Route::get('/linelogin',[LineLoginController::class,'linelogin'])->name('linelogin');
 Route::get('/callback', [LineLoginController::class,'callback'])->name('callback');
 
-Route::get('/calendar', [EventController::class, 'show'])->name("show");
-Route::post('/calendar/create', [EventController::class, 'create'])->name("creation");
-Route::post('/calendar/get',  [EventController::class, 'get'])->name("get");
-Route::put('/calendar/update', [EventController::class, 'update'])->name("update");
-Route::delete('/calendar/delete', [EventController::class, 'delete'])->name("delete"); 
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
